@@ -1,0 +1,42 @@
+plugins {
+	id 'org.springframework.boot' version '2.0.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'demo.cleartrip.sms'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springCloudVersion', "Hoxton.SR3")
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile group: 'com.netflix.hystrix', name: 'hystrix-core', version: '1.5.12'
+	compile group: 'com.netflix.hystrix', name: 'hystrix-servo-metrics-publisher', version: '1.5.12'
+//	compile group: 'com.netflix.servo', name: 'servo-core', version: '0.4.27'
+	// https://mvnrepository.com/artifact/com.netflix.servo/servo-core
+	compile group: 'com.netflix.servo', name: 'servo-core', version: '0.12.28'
+
+	//implementation("org.springframework.boot:spring-boot-starter-actuator:2.0.4.RELEASE")
+
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
