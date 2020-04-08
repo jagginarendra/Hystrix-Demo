@@ -1,4 +1,6 @@
 package com.demo.sapient.model;
 
-public class Transaction {
+public enum  TransactionStatus {
+
+    INPROGRESS,FAILED,COMPLETED
 }

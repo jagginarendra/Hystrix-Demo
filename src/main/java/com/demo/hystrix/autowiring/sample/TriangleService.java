@@ -1,4 +1,7 @@
 package com.demo.hystrix.autowiring.sample;
 
-public class TriangleService {
+public interface TriangleService {
+
+    String draw();
+
 }
