@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan("com.demo.sapient")
+@ComponentScan("com.demo.")
 @EnableJpaRepositories("com.demo.sapient.repository")
 @EntityScan("com.demo.sapient.model")
 public class DemoSmsApplication {
